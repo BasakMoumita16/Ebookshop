@@ -3,8 +3,8 @@
 session_start();
 
 
-    require '\laragon\www\Ebookshop\model\connection.php';
-    require '\laragon\www\Ebookshop\control\control.php';
+    require 'model\connection.php';
+    require 'control\control.php';
   
   
 if($_SERVER['REQUEST_METHOD'] == 'POST')datastore($_POST['email'],'','' ,'','','',$_POST['cardno'],$_POST['nameoncard'],$_POST['address']);    

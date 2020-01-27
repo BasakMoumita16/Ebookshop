@@ -1,9 +1,9 @@
 
 <?phpsession_start();
 header('location:login.php');
-    require '\laragon\www\Ebookshop\view\registratieform.php';
-    require '\laragon\www\Ebookshop\model\connection.php';
-    require '\laragon\www\Ebookshop\control\control.php';
+    require 'view\registratieform.php';
+    require 'model\connection.php';
+    require 'control\control.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')datastore($_POST['email'],'','', $_POST['usename'],$_POST['password'],'','','','');
 

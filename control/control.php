@@ -35,12 +35,17 @@
         function datastore1($email,$password)
         {
           $db = openConnection();
-          $select = $db->prepare("SELECT * from user where email = '$email' and password = '$password'");
-          $select->execute();
+          $select = $db->prepare("SELECT * from user where email = :email and password = :password");
+
+          $select->execute([
+            'email' => $email,
+            'password' => $password
+          ]);
           $row_count = $select->rowCount();
             if ($row_count > 0) 
               {
                 header('location: products.php');
+                exit;
               } 
             else 
             {

@@ -1,16 +1,27 @@
 
 <?php
+        require '..\model\connection.php'; 
+        require '..\control\control.php'; 
 
-   /*  require '\laragon\www\Ebookshop\model\connection.php'; */
-  /*   require '\laragon\www\Ebookshop\control\control.php'; */
-
-    if(isset($_POST['firstname'])&& isset($_POST['lastname'])&& isset($_POST['email'])&& isset($_POST['message'])){
-
-    echo "ok";
-   /*  }else { echo "Notokay ";
-    } */
-?>
-
+        if(isset($_POST['firstname'])&& isset($_POST['lastname'])&& isset($_POST['email'])&& isset($_POST['message'])){
+        if(!isset($_POST['firstname'])&& isset($_POST['lastname'])&& isset($_POST['email'])&& isset($_POST['message'])){
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+        // mail verification//
+        if(!filter_var($email, FILTER_vALIDATE_EMAIL)){
+            echo "provide mail";
+            }else {
+                $body = $firstname."\n". $lastname."\n".$email."\n".$message;
+                if(mail('moumita.basak32@gmail.com','website response',$body,'FROM:response@mywebsite.com')){
+                    echo 'Thank you for contacting us';
+                }else {
+                    echo 'there is a problem in sending mail';
+                }
+            }
+        }
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +34,6 @@
         <link href="css\sstly.css" rel='stylesheet' type='text/css'>
 </head>
     <body>
-
         <div class="container">
         <center><h1>Contact Us</h1></center>
             
@@ -74,7 +84,7 @@
                 <input type="submit" class="btn btn-success btn-send" value="Send message">
             </div>
         </div>
-          </div>
+            </div>
                     </form> 
                 </div>
             </div>
@@ -85,5 +95,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js" integrity="sha256-dHf/YjH1A4tewEsKUSmNnV05DDbfGN3g7NMq86xgGh8=" crossorigin="anonymous"></script>
         <script src="contact.js">
         </script>
-<body>
-</html>
+    </body>
+    </html>

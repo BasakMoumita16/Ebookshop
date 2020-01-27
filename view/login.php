@@ -1,8 +1,12 @@
 <?php
+
+ini_set('display_errors', "1");
+ini_set('display_startup_errors', "1");
+error_reporting(E_ALL);
 session_start();
-    require '\laragon\www\Ebookshop\view\loginform.php';   
-    require '\laragon\www\Ebookshop\model\connection.php';
-    require '\laragon\www\Ebookshop\control\control.php';
+    require '..\view\loginform.php';   
+    require '..\model\connection.php';
+    require '..\control\control.php';
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         datastore1($_POST['email'],$_POST['password']);}

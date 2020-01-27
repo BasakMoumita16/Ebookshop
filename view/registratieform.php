@@ -11,7 +11,7 @@ $_SESSION["usernameerr"] = "";
 
 if(isset($_POST["submit"])){
 
-  /*username*/
+    /*username*/
     if(empty($_POST["username"])){
         $usernameerr = '<div class="alert alert-danger" role="alert">*Username is required</div>';
         $_SESSION["usernameerr"] = $usernameerr;
@@ -19,23 +19,23 @@ if(isset($_POST["submit"])){
         $_SESSION["usernameerr"] = $_POST["usernameerr"];
     }
     
-  /*email*/
-    if(empty($_POST["email"])){
-        $emailerr = '<div class="alert alert-danger" role="alert">*Email is required</div>';
-        $_SESSION["emailerr"] = $emailerr;
-       
-    } else{
-        $_SESSION["email"] = $_POST["email"];
-       ;
-    }
+    /*email*/
+        if(empty($_POST["email"])){
+            $emailerr = '<div class="alert alert-danger" role="alert">*Email is required</div>';
+            $_SESSION["emailerr"] = $emailerr;
+        
+        } else{
+            $_SESSION["email"] = $_POST["email"];
+        ;
+        }
 
-  /*email validate*/
+    /*email validate*/
         $email = $_POST["email"];
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $emailerr = '<div class="alert alert-danger" role="alert">*required</div>';
         }
 
-  /* password*/
+    /* password*/
     if(empty($_POST["password"])){
         $passworderr = '<div class="alert alert-danger" role="alert">*Password is required</div>';
         $_SESSION["passworderr"] = $passworderr;
